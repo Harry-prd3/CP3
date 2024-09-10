@@ -23,7 +23,9 @@ print(var)
 
 print("")
 
-response = input("hello git I (vs code) need you to print your responce to this.")
+print("hello git I (vs code) need you to print your responce to this.")
+
+response = "okay!"
 
 print(response)
 
