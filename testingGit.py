@@ -20,3 +20,7 @@ print("")
 var = "gitHub"
 
 print(var)
+
+print("")
+
+response = input("hello git I (vs code) need you to print your responce to this.")
