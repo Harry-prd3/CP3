@@ -5,3 +5,12 @@ print("cahange teehee")
 print("now im on git!")
 
 print("now im on vs code")
+
+print("")
+print("")
+print("")
+
+
+var =  "vs code"
+
+print(var)
