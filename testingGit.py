@@ -26,3 +26,5 @@ print("")
 response = input("hello git I (vs code) need you to print your responce to this.")
 
 print(response)
+
+#I want to see if git will send just a comment auto withought haveing to restart the code space.
