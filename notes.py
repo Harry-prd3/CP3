@@ -112,7 +112,9 @@ eevee = pokemon("JayRod", 37, "normal", 2)
 electivire = pokemon("bobsive", 1, "electric", 36.872)
 pika = pokemon.pikachu()
 
+"""
 print(eevee.lvl_up)
 print(eevee)
 pika.hp = pokemon.hp_update(pika)
 print(pika)
+"""
