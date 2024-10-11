@@ -1,4 +1,4 @@
-menu = {"dr.pepper": "drink", "sprite": "drink", "soup":"app", "salad":"app","spagetti":"main", "steak":"main", "corn":"side","broccoli":"side","cake":"dessert","sunday":"dessert"}
+menu = {"drink": "dr.pepper", "drink": "sprite", "soup":"app", "salad":"app","spagetti":"main", "steak":"main", "corn":"side","broccoli":"side","cake":"dessert","sunday":"dessert"}
 
 class order:
     def __init__(self, drink, app, main, side1, side2, dess):
@@ -42,6 +42,7 @@ def make_order():
     drink = None
     while drink == None:
         drink = input("what would you like to drink?, we have dr.pepper, sprite or if you don't one type no: ")
+        print(drink)
     app = None
     while app == None:
         app = input("what would you like as an appitizer?, we have soup, salad or if you don't one type no: ")
