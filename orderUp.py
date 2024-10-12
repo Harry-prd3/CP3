@@ -54,37 +54,37 @@ def make_order():
     drink = None
     while drink == None:
         drink = input("what would you like to drink?, we have dr.pepper, sprite or if you don't one type no: ")
-        if drink not in menu and drink != "no":
+        if drink not in menu:
             print("that's not on our menu")
             drink = None
     app = None
     while app == None:
         app = input("what would you like as an appitizer?, we have soup, salad or if you don't one type no: ")
-        if app not in menu and app != "no":
+        if app not in menu:
             print("that's not on our menu")
             app = None
     main = None
     while main == None:
         main = input("what would you like as a main?, we have spagetti, steak or if you don't one type no: ")
-        if main not in menu and main != "no":
+        if main not in menu:
             print("that's not on our menu")
             main = None
     side1 = None
     while side1 == None:
         side1 = input("what would you like as your first side?, we have corn, broccoli or if you don't one type no: ")
-        if side1 not in menu and side1 != "no":
+        if side1 not in menu:
             print("that's not on our menu")
             side1 = None
     side2 = None
     while side2 == None:
         side2 = input("what would you like as your second side?, we have corn, broccoli or if you don't one type no: ")
-        if side2 not in menu and side2 != "no":
+        if side2 not in menu:
             print("that's not on our menu")
             side2 = None
     dess = None
     while dess == None:
         dess = input("what would you like as your dessert?, we have cake, sunday or if you don't one type no: ")
-    if dess not in menu and dess != "no":
+    if dess not in menu:
             print("that's not on our menu")
             dess = None
 
@@ -95,39 +95,66 @@ def make_order():
     else:
         global user_order
         user_order = order(drink,app,main,side1,side2,dess)
-        return user_order
+        orderPrint()
 
-def makeOrder():
-    make_order()
+def orderPrint():
     print(user_order)
     total = order.price(user_order)
     print(f"your total is: {total}")
+    changeOrder()
 
-change = "no"
-while change == "no":
-    change = input("would you like to change your order? (yes/no): ")
-    if change == "yes":
-        keepAsk = "yes"
-        while keepAsk == "yes":
-            what = input("what would you like to change?(drink, apptizer, main, side1, side2, dessert): ")
-            if what != "drink" or "appitizer" or "main" or "side1" or "side2" or "dessert":
-                print("that was not one of your options to change.")
-            else:
-                keepAsk = "no"
-                if what == "drink":
-                    pass
-                if what == "appitizer":
-                    pass
-                if what == "main":
-                    pass
-                if what == "side1":
-                    pass
-                if what == "side2":
-                    pass
-                if what == "dessert":
-                    pass
-    elif change == "no":
-        print("perfect thank you.")
-    else:
-        print("only type yes or no in lowercase.")
-        change == "no"
+def changeOrder():
+    change = "no"
+    while change == "no":
+        change = input("would you like to change your order? (yes/no): ")
+        if change == "yes":
+            keepAsk = "yes"
+            while keepAsk == "yes":
+                what = input("what would you like to change?(drink, apptizer, main, side1, side2, dessert): ")
+                if what != "drink" or "appitizer" or "main" or "side1" or "side2" or "dessert":
+                    print("that was not one of your options to change.")
+                else:
+                    if what == "drink":
+                        while drink == None:
+                            drink = input("what would you like to drink?, we have dr.pepper, sprite or if you don't one type no: ")
+                            if drink not in menu:
+                                print("that's not on our menu")
+                                drink = None
+                    if what == "appitizer":
+                        while app == None:
+                            app = input("what would you like as an appitizer?, we have soup, salad or if you don't one type no: ")
+                            if app not in menu:
+                                print("that's not on our menu")
+                                app = None
+                    if what == "main":
+                        while main == None:
+                            main = input("what would you like as a main?, we have spagetti, steak or if you don't one type no: ")
+                            if main not in menu:
+                                print("that's not on our menu")
+                                main = None
+                    if what == "side1":
+                        while side1 == None:
+                            side1 = input("what would you like as your first side?, we have corn, broccoli or if you don't one type no: ")
+                            if side1 not in menu:
+                                print("that's not on our menu")
+                                side1 = None
+                    if what == "side2":
+                        while side2 == None:
+                            side2 = input("what would you like as your second side?, we have corn, broccoli or if you don't one type no: ")
+                            if side2 not in menu:
+                                print("that's not on our menu")
+                                side2 = None
+                    if what == "dessert":
+                        while dess == None:
+                            dess = input("what would you like as your dessert?, we have cake, sunday or if you don't one type no: ")
+                            if dess not in menu:
+                                print("that's not on our menu")
+                                dess = None
+
+        elif change == "no":
+            print("perfect thank you.")
+        else:
+            print("only type yes or no in lowercase.")
+            change == "no"
+
+make_order()
