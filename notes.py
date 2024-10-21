@@ -107,13 +107,193 @@ class pokemon:
 
 
 
-
+"""
 eevee = pokemon("JayRod", 37, "normal", 2)
 electivire = pokemon("bobsive", 1, "electric", 36.872)
 pika = pokemon.pikachu()
-
-
+"""
+"""
 print(eevee.lvl_up)
 print(eevee)
 pika.hp = pokemon.hp_update(pika)
 print(pika)
+"""
+
+#UML diagrams
+#what uml stand for
+#the two different catagories
+#the types of diagrams in those catagories
+"""
+Unified Modeling Language
+the two cattagories are:structual diagrams and behavioral
+stuctural has composit, depoyment, package, profile, object, and component
+behavioral has activity, use, state, machine, interaction
+interaction has sequence, communication, interaction overveiw, communication, and timming
+"""
+"""
+the first par is the attrabutes (values)
+
+the default value isnt requred, the data type is required
+the + and the - at the start of the attribute shows if it is public or private
+if there is a # instead it is protected and can not be changed
+protected are visible for the class its in AND subclases
+
++ attribute1:type = defaultValue
+
+ex 
+__________________
+| pokemon        |
+|________________|
+|+ public: string|
+|- hp: int       |
+|+ type: string  |
+|+ rarity: string|
+|+ level: int    |
+|________________|
+
+the second part of the diagram is the operations(methods)
+
+this also has public and private + and -
+they can have a return type which will be void if nothing is returned otherwise a var type
+
++ operation1(params):returnType
+
+ex
+_______________________
+| pokemon             |
+|_____________________|
+|+ fight(other):string| 
+|_____________________|
+
+
+lines between classes are called relationships/ association
+* means infinite (0...* is setting a range from 0 - infinity)
+ittalics means abstract(implied class, kinda acts like a catagory for other classes, dont acctually make)
+aggrigation is set with a solid diamon, assentually one class cant exist without the other
+
+dependendcy, if one thing changes it does not affect the other, so event doesnt affect window
+compositoin is if one thing dies then the other one dies
+dependedncy and aggregation are different cause the boards could exist and not be open monitor
+aggation can not exist without the other.
+notes are recatnalges with a dog ear coner, they are just like comments
+"""
+
+#subclasses
+class PetStore:
+    name = "pet man place"
+    def __init__(self, id_number):
+        self.id_number = id_number
+        self.animals = []
+        self.featuredPet = None
+
+    def addPet(self,animal):
+        assert isinstance(animal, Animal)
+        self.animals.append(animal)
+
+    def removePet(self, animal):
+        try:
+            self.animals.remove(animal)
+        except:
+            print("No amicables")
+        else:
+            print(animal, " removed")
+    
+    def feature(self, name):
+        for pet in self.animals:
+            if pet.name == name:
+                self.featuredPet = name
+                pet("featured pet. . . ", name)
+                break
+        else:
+            print("There is not a pet with that name :3")
+    
+    def getFeatured(self):
+        return(self.featuredPet)
+    
+    def feed(self):
+        for pet in self.animals:
+            pet.eat()
+    
+    def getMammals(self):
+        return self.getByType(Mammal)
+    
+    def getReptiles(self):
+        return self.getByType(Reptile)
+    
+    def getByType(self, typ):
+        return [pet for pet in self.animals if isinstance(pet, typ)]
+
+class Animal :
+    def __init__ (self,name):
+        self.name = name
+    
+    def __str__(self):
+        return(f"my name is: {self.name}")
+
+    def eat(self):
+        print(self.name, "eating", self.diet)
+
+class Bird(Animal):
+    pass
+
+class pigdeon(Bird):
+    diet = "street food"
+
+class flamingo(Bird):
+    diet = "shrimp"
+
+class Amphibian(Animal):
+    pass
+
+class Frog(Amphibian):
+    diet = "Flies"
+
+class newt(Amphibian):
+    diet = "worm"
+
+class Fish(Animal):
+    pass
+
+class koi(Fish):
+    diet = "algae"
+
+class parana(Fish):
+    diet = "human"
+
+class Mammal(Animal):
+    pass
+
+class human(Mammal):
+    diet = "idk man"
+
+class Cat(Mammal):
+    diet = "jerry"
+
+class Dog(Mammal):
+    diet = "cat"
+
+class Reptile(Animal):
+    pass
+
+class Snake(Reptile):
+    diet = "dog"
+
+class Turtle(Reptile):
+    diet = "plastic straws"
+
+
+store = PetStore(1)
+
+store.addPet(Turtle("Sherbert"))
+store.addPet(Cat("Tom"))
+store.addPet(Turtle("IceCream"))
+store.addPet(Snake("Ramen"))
+
+
+"""
+print("Reptiles: ")
+for pet in store.getReptiles():
+    print(pet)
+
+store.feature("Tom")
+"""
