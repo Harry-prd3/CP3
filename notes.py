@@ -187,6 +187,7 @@ class PetStore:
         self.featuredPet = None
 
     def addPet(self,animal):
+        # isinstance checks if the fisrt value is the is an instance of the class as the second value 
         assert isinstance(animal, Animal)
         self.animals.append(animal)
 
@@ -267,6 +268,9 @@ class human(Mammal):
     diet = "idk man"
 
 class Cat(Mammal):
+    def __init__(self, name, diet):
+        super().__init__(name)
+        self.diet = diet
     diet = "jerry"
 
 class Dog(Mammal):
