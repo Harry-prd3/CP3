@@ -22,5 +22,6 @@ def test_IceCream():
 
 def test_Sundae():
     assert Sundae("vanilla", 1, 2, "sprinkels", 1)
-    assert Sundae("chocolate", 5, 2, "reesees", 2)
+    assert Sundae("chocolate", 5, 2, "chocolate chips", 2)
     assert Sundae("strawberry", 3, 3, "chocolate sauce", 1)
+
