@@ -6,7 +6,7 @@ class DessertItem():
     def __str__(self):
         return(f"the name of this item is: {self.name}")
     
-class candy(DessertItem):
+class Candy(DessertItem):
     def __init__(self, name, weight, price_per_pound):
         super().__init__(name)
         self.cand_weight = weight

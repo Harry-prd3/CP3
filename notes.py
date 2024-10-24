@@ -27,6 +27,9 @@ class Animal:
             self.deaths += 1
             return "they both died"
 
+    def get_name(self):
+        return self.name
+
     # Create a way to readably print our objects to show they exist
     def __str__(self):
         return f"\nName: {self.name}\nAge: {self.age}\nSpecies: {self.species}\nGender: {self.gender}\nRarity: {self.rarity}"
@@ -224,7 +227,7 @@ class PetStore:
     def getByType(self, typ):
         return [pet for pet in self.animals if isinstance(pet, typ)]
 
-class Animal :
+class Animals :
     def __init__ (self,name):
         self.name = name
     
@@ -234,7 +237,7 @@ class Animal :
     def eat(self):
         print(self.name, "eating", self.diet)
 
-class Bird(Animal):
+class Bird(Animals):
     pass
 
 class pigdeon(Bird):
@@ -243,7 +246,7 @@ class pigdeon(Bird):
 class flamingo(Bird):
     diet = "shrimp"
 
-class Amphibian(Animal):
+class Amphibian(Animals):
     pass
 
 class Frog(Amphibian):
@@ -252,7 +255,7 @@ class Frog(Amphibian):
 class newt(Amphibian):
     diet = "worm"
 
-class Fish(Animal):
+class Fish(Animals):
     pass
 
 class koi(Fish):
@@ -261,7 +264,7 @@ class koi(Fish):
 class parana(Fish):
     diet = "human"
 
-class Mammal(Animal):
+class Mammal(Animals):
     pass
 
 class human(Mammal):
@@ -276,7 +279,7 @@ class Cat(Mammal):
 class Dog(Mammal):
     diet = "cat"
 
-class Reptile(Animal):
+class Reptile(Animals):
     pass
 
 class Snake(Reptile):
@@ -287,12 +290,12 @@ class Turtle(Reptile):
 
 
 store = PetStore(1)
-
+"""
 store.addPet(Turtle("Sherbert"))
 store.addPet(Cat("Tom"))
 store.addPet(Turtle("IceCream"))
 store.addPet(Snake("Ramen"))
-
+"""
 
 """
 print("Reptiles: ")
