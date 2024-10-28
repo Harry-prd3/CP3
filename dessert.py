@@ -29,3 +29,45 @@ class Sundae(IceCream):
         super().__init__(name, scoop_count, price_per_scoop)
         self.topping_name = topping_name
         self.topping_price = topping_price
+
+class order():
+    def __init__ (self):
+        order = []
+        self.order = order
+
+    def add_Item(self, item):
+        item = [item]
+        self.order += item
+    
+    def __len__(self):
+        count = 0
+        for i in self.order:
+            count +=1
+        return count
+
+    def __str__(self):
+        count = 0
+        for item in self.order:
+            print(self.order[self.order.index(item)])
+            count += 1
+        return(f"you have {self.__len__} item(s) in your order.")
+
+
+
+
+def main():
+    defaultOrder = order()
+    defaultOrder.add_Item(Candy("Candy Corn", 1.5, .25))
+    defaultOrder.add_Item(Candy("Gummy Bears", .25, .35))
+    defaultOrder.add_Item(Cookie("Chocolate Chip", 6, 3.99))
+    defaultOrder.add_Item(IceCream("Pistachio", 2, .79))
+    defaultOrder.add_Item(Sundae("Vanilla", 3, .69, "Hot Fudge", 1.29))
+    defaultOrder.add_Item(Cookie("Oatmeal Raisin", 2, 3.45))
+
+
+    
+    print(defaultOrder)
+
+
+#runner
+main()
