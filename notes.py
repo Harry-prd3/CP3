@@ -304,3 +304,43 @@ for pet in store.getReptiles():
 
 store.feature("Tom")
 """
+
+
+#polymorphism
+#when fuctions or methods can do multiple things baded on the given input
+import math
+from abc import ABC, abstractmethod
+
+#give the shape ABC(abstract class) meaning there will never be an instance of this class
+class Shape(ABC):
+    def __init__(self,value):
+        self.value = value
+
+    @abstractmethod
+    def area(self):
+        return 0
+
+class Square(Shape):
+    def area(self):
+        return self.value * self.value
+
+class Circle(Shape):
+    def area(self):
+        return round(math.pi * self.value**2,2)
+
+class Rectangle(Shape):
+    def __init__(self, value, value2):
+        super().__init__(value)
+        self.value2 = value2
+    
+    def area(self):
+        return self.value * self.value2
+
+
+shapes = [Square(4),Circle(4),Rectangle(5,3),"this", Rectangle(8,2)]
+
+"""
+for shape in shapes:
+    if isinstance(shape, Shape):
+        print(shape.area())
+"""
