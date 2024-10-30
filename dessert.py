@@ -50,7 +50,7 @@ class order():
         for item in self.order:
             print(self.order[self.order.index(item)])
             count += 1
-        return(f"you have {self.__len__} item(s) in your order.")
+        return(f"you have {count} item(s) in your order.")
 
 
 
