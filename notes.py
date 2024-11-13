@@ -344,3 +344,49 @@ for shape in shapes:
     if isinstance(shape, Shape):
         print(shape.area())
 """
+
+#exceptions
+#ways we handle erros that are given by users in a way that doesnt break the code
+#zero division,file not found, value error, type error, index error
+# ^ these are set to be found by the comupter 
+
+class NegativeNumberError:
+    pass
+"""
+while True:
+    try:
+        num = int(input("Tell me a number: "))
+        
+    except ValueError:
+        print("that wasnt a whole number love")
+        continue
+
+    else:
+        break
+
+while True:
+    try:
+        numTwo = int(input("Tell me another number: "))
+        if numTwo <= 0:
+            raise NegativeNumberError("cant be a negative number")
+    except (ValueError):
+        print("that wasnt a whole number love")
+        continue
+    except  NegativeNumberError as e:
+        print(e)
+        continue
+
+    else:
+        try:
+            print(f"{str(num)} over {str(numTwo)} equals {num / numTwo}")
+            break
+        except ZeroDivisionError:
+            print("you cant divide by 0 b*tch, give it another go")
+            continue
+        #runs no matter what, even if error
+        finally:
+            print("thanks for playing!")
+        
+
+"""
+
