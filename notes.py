@@ -390,3 +390,129 @@ while True:
 
 """
 
+#Decorators
+#exist inside of a class they have an "@" symbol and they change the function without doing anthing to the function istelf
+#you can make your own
+
+def cough(func):
+    def func_wrapper():
+        #stuff that happens before the function
+        print("*cough*")
+        func()
+        print("*cough*")
+        #stuff that happens after the function
+    
+    return func_wrapper
+
+@cough
+def akward():
+    print("can i get a discount,,,?")
+
+@cough
+def answ():
+    print("/// no...? this is a dollar tree?.")
+
+
+"""
+akward()
+answ()
+"""
+
+#generators
+#a pre-built thing that allows you to create data
+#yield statements can be used to make generators
+#takes up less space and cleans up code
+
+import itertools
+import string
+def nums():
+    yield 1
+    yield 2
+    yield 3
+
+    #for x in nums():
+    #    print(x)
+
+def letters():
+    for c in string.ascii_lowercase:
+        yield c
+    
+#for letter in letters():
+#    print(letter)
+
+#print(nums())
+
+def prime_numbers():
+    yield 2 
+    prime_cache = [2]
+    for n in itertools.count(3,2):
+        is_prime = True
+
+        for p in prime_cache:
+            if n % p == 0:
+                is_prime = False
+                break
+        if is_prime:
+            prime_cache.append(n)
+            yield n
+
+"""
+for p in prime_numbers():
+    print(p)
+    if p > 100:
+        break
+"""
+
+squares = (x**2 for x in itertools.count(1))
+
+"""
+print(type(squares))
+
+for x in squares:
+    print(x)
+    if x > 500:
+        break
+"""
+
+
+#sorting
+
+li = (9,1,8,2,7,3,6,4,5)
+"""
+print(li)
+li.sort()
+print(li)
+"""
+slist = sorted(li)
+#print(slist)
+
+"""
+di = {"name": "Tia", "job": "president", "age": 314, "os":"mac"}
+sdi = sorted(di)
+print(f"Dictionary:\t {sdi}")
+"""
+
+from operator import attrgetter
+
+class Employee:
+    def __init__(self, name, age, salory):
+        self.name = name
+        self.age = age
+        self.salory = salory
+    
+    def __repr__(self):
+        return "({},{},${})".format(self.name,self.age,self.salory)
+
+e1 = Employee("Carl", 37, 70000)
+e2 = Employee("Arash", 21, 90000)
+e3 = Employee("Salone", 34, 5)
+
+employee = [e1,e2,e3]
+
+def e_sort(emp):
+    return emp.name
+
+
+s_employees = sorted(employee, reverse=True, key=attrgetter("age"))
+
+print(s_employees)
