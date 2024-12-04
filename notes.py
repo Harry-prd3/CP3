@@ -514,5 +514,43 @@ def e_sort(emp):
 
 
 s_employees = sorted(employee, reverse=True, key=attrgetter("age"))
-
+"""
 print(s_employees)
+"""
+
+#list methods
+from functools import reduce
+
+mylist = [4,6,8,1.5,10,7]
+newlist = ["", "argentiata", "" , "Brazila", "", "child", "", "equal", "", "colonia", "", "", "vernisualia"]
+
+def increase(num):
+    return num+1
+
+def multiple(num):
+    if num % 3 == 0:
+        return num
+
+
+#print(list(map(increase, mylist)))
+
+#print(list(filter(multiple,mylist)))
+
+#lambda is good if there is just one conditoinal, like if but no else
+#print(list(filter(lambda num: num%3==0,mylist)))
+
+#print(list(filter(None, newlist)))
+
+multiplier = lambda x,y: x*y
+
+#reduce will only return one item
+#print(reduce(multiplier,mylist))
+
+#print(mylist)
+
+
+#special methods begin and end with doubble underscore
+#they always exist, if you write it out it will overwrite it
+#for example __init__
+
+
